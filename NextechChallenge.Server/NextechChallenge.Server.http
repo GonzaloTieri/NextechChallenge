@@ -1,0 +1,7 @@
+@NextechChallenge.Server_HostAddress = http://localhost:5211
+
+GET {{NextechChallenge.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+
+###
