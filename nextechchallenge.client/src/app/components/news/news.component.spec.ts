@@ -29,10 +29,6 @@ describe('NewsComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
-
-    // fixture = TestBed.createComponent(NewsComponent);
-    // component = fixture.componentInstance;
-    // fixture.detectChanges();
   });
   beforeEach(() => {
     fixture = TestBed.createComponent(NewsComponent);

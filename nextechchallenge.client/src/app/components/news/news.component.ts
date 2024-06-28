@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { news } from '../../models/news';
 import { HackerNewsServices } from '../../services/HackerNewsServices';
-
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news',
@@ -18,15 +17,15 @@ export class NewsComponent {
   currentPage: number = 1;
   itemsPerPage: number = 2;
   searchTerm: string = '';
+  newsSubscription: Subscription | undefined;
 
   ngOnInit() {
     this.loading = true;
-    this._hackerNewsService.getHackerNews().subscribe( (newsList) => {
-      console.log(newsList);
+    this.newsSubscription = this._hackerNewsService.getHackerNews().subscribe( (newsList) => {
       this.news = newsList;
       this.filteredNews = newsList;
       this.loading = false;
-    }, (error) => {
+    }, () => {
       this.loading = false;
     })
   }
@@ -42,4 +41,9 @@ export class NewsComponent {
     this.currentPage = 1;
   }
 
+  ngOnDestroy() {
+    if (this.newsSubscription) {
+      this.newsSubscription.unsubscribe();
+    }
+  }
 }

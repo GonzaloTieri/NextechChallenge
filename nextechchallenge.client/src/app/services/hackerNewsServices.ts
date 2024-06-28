@@ -13,12 +13,6 @@ import { Observable, map } from "rxjs";
     public news : news[] = [];
     
     getHackerNews(): Observable<news[]> {
-      return this.http
-        .get<news[]>("/HackerNews/getnewstories")
-        .pipe(
-          map((x) => {
-            return x;
-          })
-        );
+      return this.http.get<news[]>("/HackerNews/getnewstories");
     }
   }
