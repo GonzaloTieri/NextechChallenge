@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { news } from '../../models/news';
-import { HackerNewsServices } from '../../services/HackerNewsServices';
 import { Subscription } from 'rxjs';
+import { hackerNewsServices } from '../../services/hackerNewsServices';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrl: './news.component.css'
 })
-export class NewsComponent {
-  constructor(private _hackerNewsService: HackerNewsServices) {}
+export class NewsComponent implements OnInit, OnDestroy {
+  constructor(private _hackerNewsService: hackerNewsServices) {}
   
   news : news[] = [];
   filteredNews: news[] = [];

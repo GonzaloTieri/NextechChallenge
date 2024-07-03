@@ -2,6 +2,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NewsComponent } from './components/news/news.component';
+import { NewsbackComponent } from './components/newsback/newsback.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -10,7 +11,7 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, NewsComponent],
+      declarations: [AppComponent, NewsComponent, NewsbackComponent],
       imports: [HttpClientTestingModule]
     }).compileComponents();
   });

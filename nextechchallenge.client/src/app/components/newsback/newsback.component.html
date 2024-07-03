@@ -1,0 +1,34 @@
+@if(loading) {
+    <div class="text-center mt-5">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading News...</span>
+      </div>
+    </div>
+  } @else {
+    <div>
+      <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="filterNews()" placeholder="Search news..."/>
+        <div class="row m-3">
+          <div class="col-sm-6 mb-3" *ngFor="let item of news" >
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <div class="card-text" [innerHtml]="item.text"></div>
+                @if(item.text===null) {
+                  <p> No Text </p>
+                }
+                <a [class.disabled]="item.url==null"  href="{{item.url}}" class="btn btn-primary">Go to the News</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+            <button (click)="previousPage()" [disabled]="currentPage==1"  > << </button>  {{currentPage}} <button (click)="nextPage()" [disabled]="currentPage==totalPages" > >> </button>
+        </div>
+        <div> Total Pages: {{totalPages}}</div>
+      
+    </div>
+  }
+  
+  
+  
+  

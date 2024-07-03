@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { NewsComponent } from './components/news/news.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { NewsbackComponent } from './components/newsback/newsback.component';
 
 @NgModule({
   declarations: [ 
     AppComponent,
-    NewsComponent
+    NewsComponent,
+    NewsbackComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
