@@ -14,11 +14,11 @@ namespace NextechChallenge.Server.Controllers
         }
 
         [HttpGet("getnewstories")]
-        public async Task<IActionResult> GetNewStories()
+        public async Task<IActionResult> GetNewStories([FromQuery] string searchText = "", [FromQuery] int pageNumber = 1)
         {
-            var result = await _hackerNewsService.GetNewStoriesAsync();
+            var result = await _hackerNewsService.GetNewStoriesSearchAsync(searchText, pageNumber, 10);
 
-            return Ok(result.Data);
+            return Ok(result);
         }
 
     }
